@@ -1,0 +1,34 @@
+PATH
+  remote: .
+  specs:
+    welcu (0.0.1)
+      activesupport
+      json
+      oauth2
+
+GEM
+  remote: http://rubygems.org/
+  specs:
+    activesupport (3.0.3)
+    addressable (2.2.2)
+    faraday (0.5.4)
+      addressable (~> 2.2.2)
+      multipart-post (~> 1.1.0)
+      rack (>= 1.1.0, < 2)
+    json (1.4.6)
+    multi_json (0.0.5)
+    multipart-post (1.1.0)
+    oauth2 (0.1.1)
+      faraday (~> 0.5.0)
+      multi_json (~> 0.0.4)
+    rack (1.2.1)
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  activesupport
+  bundler
+  json
+  oauth2
+  welcu!
