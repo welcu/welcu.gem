@@ -37,3 +37,5 @@ module Welcu
     end
   end
 end
+
+require 'welcu/railtie' if defined? Rails
