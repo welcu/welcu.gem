@@ -1,24 +1,14 @@
-# require 'rubygems'
-# require "bundler/setup"
-require 'active_support/all'
 require 'oauth2'
 require 'json'
-# require 'hashie'
-#require 'rest_client'
+
 require 'uri'
 require "base64"
 require "openssl"
 
-# require 'welcu/result'
 require 'welcu/error'
 require 'welcu/base'
 require 'welcu/api'
 require 'welcu/client'
-# require 'welcu/base'
-# require 'welcu/authorization'
-# require 'welcu/selection'
-# require 'welcu/search'
-# require 'welcu/realtime'
 
 module Welcu
   DEFAULT_CONFIG = {
