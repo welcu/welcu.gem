@@ -24,6 +24,9 @@ module Welcu
           end
           
           client.access_token = data['access_token']
+          client.mode = data['mode']
+          client.locale = data['locale']
+          client.administrator_id = data['administrator_id']
           
           client
         end

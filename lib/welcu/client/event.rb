@@ -20,6 +20,7 @@ module Welcu
       @attributes = client.get('event')['event']
       self.company = Welcu::Company.new(self, @attributes.delete('company'))
       self.company.event = self
+      client.locale ||= self.locale
       self
     end
   end
