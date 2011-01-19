@@ -1,5 +1,5 @@
 # -*- encoding: utf-8 -*-
-
+require 'base64'
 $:.push File.expand_path("../lib", __FILE__)
 require "welcu/version"
 
