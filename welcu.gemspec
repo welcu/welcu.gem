@@ -1,4 +1,5 @@
 # -*- encoding: utf-8 -*-
+
 $:.push File.expand_path("../lib", __FILE__)
 require "welcu/version"
 
@@ -7,7 +8,7 @@ Gem::Specification.new do |s|
   s.version     = Welcu::VERSION
   s.platform    = Gem::Platform::RUBY
   s.authors     = ["Sebastian Gamboa"]
-  s.email       = ["seba@welcu.com"]
+  s.email       = [ Base64.decode64("c2ViYUB3ZWxjdS5jb20=\n") ]
   s.homepage    = "http://github.com/welcu/welcu.gem"
   s.summary     = "A Gem for the Welcu API"
   s.description = "A Gem for the Welcu API"

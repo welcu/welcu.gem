@@ -12,8 +12,8 @@ require 'welcu/client'
 
 module Welcu
   DEFAULT_CONFIG = {
-    :welcu_uri => 'https://backstage.welcu.com',
-    :api_path => '/api/v1'
+    'welcu_uri' => 'https://backstage.welcu.com',
+    'api_path' => '/api/v1'
   }.freeze
   @config = DEFAULT_CONFIG
 
@@ -38,4 +38,4 @@ module Welcu
   end
 end
 
-# require 'welcu/railtie' if defined? Rails
+require 'welcu/railtie' if defined? Rails

@@ -6,10 +6,10 @@ module Welcu
       
     def initialize(options = {})
       options = Welcu.config.merge(options)
-      @client_id, @client_secret = options[:client_id], options[:client_secret]
-      @welcu_uri = options[:welcu_uri]
-      @api_path = options[:api_path]
-      @access_token = options.fetch :token, nil
+      @client_id, @client_secret = options['client_id'], options['client_secret']
+      @welcu_uri = options['welcu_uri']
+      @api_path = options['api_path']
+      @access_token = options.fetch :access_token, nil
       @auth = OAuth2::AccessToken.new(oauth_client , @access_token)
     end
     

@@ -20,8 +20,8 @@ module Welcu
           passes[poss]
         end
         
-        def each(&block)
-          passes(&block)
+        def each
+          passes.each { |p| yield p }
         end
         
         protected
