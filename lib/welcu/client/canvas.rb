@@ -1,3 +1,5 @@
+require 'base64'
+
 module Welcu
   class Client
     module Canvas
