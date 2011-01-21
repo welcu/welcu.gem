@@ -51,6 +51,13 @@ module Welcu
       
       true
     end
+
+    def attributes=(attrs)
+      self.first_name = attrs['first_name']
+      self.last_name = attrs['last_name']
+      self.email = attrs['email']
+      self.pass_id = attrs['pass_id']
+    end
     
     def confirm!
       client.put("/registries/#{id}/confirm")
