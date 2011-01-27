@@ -1,6 +1,7 @@
 module Welcu
   class Base
-    attr_reader :attributes, :client
+    attr_reader :client
+    attr_accessor :attributes
     
     def initialize(client, attributes={})
       @client = client
