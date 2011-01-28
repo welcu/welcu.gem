@@ -44,9 +44,9 @@ module Welcu
     
     def save
       if id
-        self.attributes = client.put("registries/#{id}", to_hash)['registry']
+        self.id = client.put("registries/#{id}", to_hash)['registry']['id']
       else
-        self.attributes = client.post("registries", to_hash)['registry']
+        client.post("registries", to_hash)['registry']
       end
       
       true
