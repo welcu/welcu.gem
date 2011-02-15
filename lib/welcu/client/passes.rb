@@ -38,7 +38,7 @@ module Welcu
   
   class Pass < Base
     attr_reader :event
-    attribute :name, :description
+    attribute :name, :description, :fields
     
     def initialize(client, attributes={})
       super
