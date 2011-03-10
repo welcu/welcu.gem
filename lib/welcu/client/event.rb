@@ -30,6 +30,6 @@ module Welcu
   
   class Company < Base
     attr_accessor :event
-    attribute :name, :short_name, :permalink, :description, :locale, :logo, :background_color
+    attribute :name, :short_name, :permalink, :description, :locale, :logo, :background_color, :text_color
   end
 end
