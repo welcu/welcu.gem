@@ -24,7 +24,7 @@ module Welcu
   
   class Registry < Base
     attr_reader :event
-    attribute :first_name, :last_name, :email, :phone, :pass_id, :state, :fields, :verification
+    attribute :first_name, :last_name, :email, :phone, :pass_id, :state, :fields, :verification, :message
     
     def initialize(client, attributes={})
       super
