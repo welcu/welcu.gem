@@ -1,7 +1,7 @@
 module Welcu
   class API
     attr_reader :client_id , :client_secret , :welcu_uri , :access_token , :consumer , :auth, :api_path
-    attr_accessor :locale, :administrator_id, :mode
+    attr_accessor :locale, :event_id, :user_id, :mode
     alias_method :id, :client_id
     alias_method :secret, :client_secret
       

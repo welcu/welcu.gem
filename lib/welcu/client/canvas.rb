@@ -23,10 +23,11 @@ module Welcu
             raise Welcu::Client::Canvas::BadSignatureError
           end
           
-          client.access_token = data['access_token']
+          client.access_token = data['access_token'] if data['access_token']
+          client.event_id = data['event_id']
+          client.user_id = data['user_id']
           client.mode = data['mode']
           client.locale = data['locale']
-          client.administrator_id = data['administrator_id']
           
           client
         end
