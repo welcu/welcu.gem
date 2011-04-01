@@ -17,6 +17,7 @@ module Welcu
     def access_token=(new_token)
       @access_token = new_token
       @auth = OAuth2::AccessToken.new(oauth_client , @access_token)
+      @auth.token_param = 'access_token'
       new_token
     end
     
