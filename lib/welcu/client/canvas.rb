@@ -28,6 +28,7 @@ module Welcu
           client.user_id = data['user_id']
           client.mode = data['mode']
           client.locale = data['locale']
+          client.path = data['path']
           
           client
         end
