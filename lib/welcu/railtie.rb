@@ -5,4 +5,4 @@ module Welcu
       Welcu.load_config(config_file,Rails.env) if config_file.file?
     end
   end
-end
+end if Rails.version > '3'
