@@ -56,6 +56,14 @@ module Welcu
       client.put("/registries/#{id}/confirm")
       true
     end
+
+    def checkin!(at = Time.now)
+      if state != 'confirmed' or state != 'acredited'
+        confirm!
+      end
+      client.put("/registries/#{id}/checkin", { :at => at })
+      true
+    end
     
     def reject!
       client.put("/registries/#{id}/reject")
