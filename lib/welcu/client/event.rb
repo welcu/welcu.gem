@@ -15,14 +15,13 @@ module Welcu
     attr_accessor :company
     attr_accessor :passes
     
-    attribute :name, :short_name, :permalink, :description, :starts_at, :ends_at, :locale, :logo, :location, :url, :logo_big, :host
+    attribute :name, :created_at
     
     def load!
-      @attributes = client.get('event')['event']
+      @attributes = client.get('event')
       self.company = Welcu::Company.new(self, @attributes.delete('company'))
       self.passes = client.passes
       self.company.event = self
-      client.locale ||= self.locale
       self
     end
 
@@ -30,6 +29,6 @@ module Welcu
   
   class Company < Base
     attr_accessor :event
-    attribute :name, :short_name, :permalink, :description, :locale, :logo, :background_color, :text_color, :network_footer, :network_name, :network_active
+    attribute :name, :created_at
   end
 end
