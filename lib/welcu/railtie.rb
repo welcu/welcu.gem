@@ -1,5 +1,3 @@
-return unless defined?(Rails) && Rails.version > '3'
-
 module Welcu
   class Railtie < Rails::Railtie
 
@@ -13,4 +11,4 @@ module Welcu
     end
 
   end
-end
+end if defined?(Rails) && Rails.version > '3'
