@@ -1,3 +1,7 @@
+require 'welcu/version'
+
+require 'base64'
+require 'openssl'
 require 'oauth2'
 require 'hashie'
 require 'active_support'

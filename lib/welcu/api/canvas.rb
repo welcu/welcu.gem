@@ -1,11 +1,13 @@
-require 'base64'
-require 'openssl'
-
 module Welcu
   module API
     module Canvas
       SIGNATURE_ALGORITHM_NAME = /\AHMAC-SHA256\Z/i
       extend ActiveSupport::Concern
+
+      included do
+        # Canvas specific attribute delegation
+        delegate :path, :locale, :event_id, :mode, :to => :config
+      end
       
       module ClassMethods
         def from_signed_request(request, options = {})
@@ -17,7 +19,7 @@ module Welcu
             Welcu.config.merge(options).client_secret
           )
           
-          Welcu::Client.new( options.merge(payload) )
+          new( options.merge(payload) )
         end
       end
       
@@ -29,13 +31,13 @@ module Welcu
         payload = ActiveSupport::JSON.decode(Base64.urlsafe_decode64(payload))
 
         unless SIGNATURE_ALGORITHM_NAME =~ payload["algorithm"]
-          raise Welcu::UnknownCanvasSignatureAlgorithmError.new(payload["algorithm"])
+          raise UnknownCanvasSignatureAlgorithmError.new(payload["algorithm"])
         end
 
         expected_sig = OpenSSL::HMAC.hexdigest('sha256', secret, payload_string)
         
         if expected_sig != signature
-          raise Welcu::BadCanvasSignatureError
+          raise BadCanvasSignatureError
         end
 
         payload
