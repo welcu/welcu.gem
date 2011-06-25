@@ -1,14 +1,12 @@
 # -*- encoding: utf-8 -*-
-require 'base64'
-$:.push File.expand_path("../lib", __FILE__)
-require "welcu/version"
+require File.expand_path('../lib/welcu/version', __FILE__)
 
 Gem::Specification.new do |s|
   s.name        = "welcu"
   s.version     = Welcu::VERSION
   s.platform    = Gem::Platform::RUBY
   s.authors     = ["Sebastian Gamboa"]
-  s.email       = [ Base64.decode64("c2ViYUB3ZWxjdS5jb20=\n") ]
+  s.email       = [ "seba@welcu.com" ]
   s.homepage    = "http://github.com/welcu/welcu.gem"
   s.summary     = "A Gem for the Welcu API"
   s.description = "A Gem for the Welcu API"
@@ -20,7 +18,8 @@ Gem::Specification.new do |s|
   s.require_paths = ["lib"]
   
   s.add_runtime_dependency("oauth2", '>= 0.1.1')
-  s.add_runtime_dependency("json", '~> 1.4.6')
+  s.add_runtime_dependency("hashie", '~> 1.0.0')
+  s.add_runtime_dependency("activesupport", '~> 3')
   
   s.add_development_dependency("rake")
   s.add_development_dependency("bundler", '~> 1.0.0')

@@ -1,10 +1,5 @@
 module Welcu
-  class Base < Hashie::Mash
-    # property :id
-
-    def client=(client)
-      @client = client
-    end
+  module API
 
     class Proxy < BasicObject
       def initialize(client)
@@ -16,7 +11,6 @@ module Welcu
           target.send(name, *args, &block)
         end
     end 
-  end
 
-  
+  end
 end
