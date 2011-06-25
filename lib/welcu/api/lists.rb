@@ -22,15 +22,21 @@ module Welcu
 
       class Proxy < API::Proxy
         def find(id)
-          ::Welcu::List.new(
-            @client.get "company/contacts/lists/#{id}"
-          ).tap { |l| l.client = @client }
+          with_client do
+            ::Welcu::List.new(
+             @client.get "company/contacts/lists/#{id}"
+            )
+          end
         end
 
         protected
           def target
-            @target ||= @client.get('company/contacts/lists').map do |list|
-              ::Welcu::List.new(list).tap { |l| l.client = @client }
+            @target ||= with_client do
+              @client.get(
+                'company/contacts/lists'
+              ).map do |list|
+                ::Welcu::List.new(list)
+              end
             end
           end
       end

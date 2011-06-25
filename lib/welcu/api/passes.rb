@@ -19,8 +19,10 @@ module Welcu
 
         protected
           def target
-            @target ||= @client.get('passes').map do |pass|
-              ::Welcu::Pass.new(pass).tap { |p| p.client = @client }
+            @target ||= with_client do
+              @client.get('passes').map do |pass|
+                ::Welcu::Pass.new(pass)
+              end
             end
           end
       end

@@ -19,8 +19,10 @@ module Welcu
         def initialize(client, list = nil, contacts = nil)
           super(client)
           @list = list
-          @target = contacts && contacts.map do |contact|
-            ::Welcu::Contact.new(contact).tap { |c| c.client = @client }
+          @target = with_client do
+            contacts && contacts.map do |contact|
+              ::Welcu::Contact.new(contact)
+            end
           end
         end
 
