@@ -1,6 +1,7 @@
 require 'oauth2'
 require 'hashie'
 require 'active_support'
+require 'active_support/core_ext/module/delegation'
 
 require 'welcu/config'
 require 'welcu/base'
