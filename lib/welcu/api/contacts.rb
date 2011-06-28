@@ -1,8 +1,6 @@
 module Welcu
   class Contact < Base
-    # property :first_name
-    # property :last_name
-    # property :email
+    attributes :first_name, :last_name, :email
   end
 
   module API

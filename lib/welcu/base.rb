@@ -1,22 +1,33 @@
 module Welcu
-  class Base < Hashie::Mash
-    # property :id
+  class Base
+
+    def initialize(attributes = {})
+      self.attributes = Hashie::Mash.new(attributes)
+    end
+
+    def attributes
+      @attributes
+    end
+
+    def attributes=(attributes)
+      @attributes = Hashie::Mash.new(attributes)
+    end
 
     def client=(client)
       @client = client
     end
 
-    class Proxy < BasicObject
-      def initialize(client)
-        @client = client
-      end
-      
-      protected
-        def method_missing(name, *args, &block)
-          target.send(name, *args, &block)
-        end
-    end 
-  end
+    def inspect
+      @attributes.inspect.gsub /Hashie::Mash/, self.class.name
+    end
 
-  
+    class << self
+      def attributes(*names)
+        # Getters & Setters
+        delegate *names, :to => :attributes
+        delegate *names.map { |attr| "#{attr}="}, :to => :attributes
+      end
+    end
+    attributes :id
+  end
 end

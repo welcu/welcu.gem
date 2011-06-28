@@ -2,14 +2,13 @@ module Welcu
   class Ticket < Base
     def save
       return false if id
-      result = @client.post 'tickets', :ticket => self
-      merge! results
+      self.attributes = @client.post 'tickets', :ticket => attributes
       true
     end
   end
 
   module API
-    module Lists
+    module Tickets
       extend ActiveSupport::Concern
 
       module InstanceMethods

@@ -7,9 +7,8 @@ module Welcu
     include Welcu::API::Canvas
     include Welcu::API::Event
     include Welcu::API::Lists
-    # include Welcu::API::Contacts
+    include Welcu::API::Contacts
     include Welcu::API::Passes
-    # include Welcu::API::Tickets
+    include Welcu::API::Tickets
   end  
 end
-

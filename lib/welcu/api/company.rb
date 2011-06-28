@@ -1,6 +1,5 @@
 module Welcu
   class Company < Base
-    # property :name
-    # property :created_at
+    attributes :name, :created_at
   end
 end

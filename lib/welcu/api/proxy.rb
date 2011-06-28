@@ -17,7 +17,7 @@ module Welcu
 
           if object.respond_to? :client=
             object.client = @client
-          elsif object.is_a? Array
+          elsif object.is_a? ::Array
             object.each do |o|
               o.client = @client if o.respond_to? :client=
             end
