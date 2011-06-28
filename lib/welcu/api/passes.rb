@@ -1,5 +1,10 @@
 module Welcu
   class Pass < Base
+    def save
+      return false if id
+      self.attributes = @client.post 'passes', :pass => attributes
+      true
+    end
   end
 
   module API
@@ -15,6 +20,12 @@ module Welcu
       class Proxy < API::Proxy
         def find(id)
           target.find { |pass| pass.id == id}
+        end
+
+        def build(attributes = {})
+          with_client do
+            ::Welcu::Pass.new(attributes)
+          end
         end
 
         protected
