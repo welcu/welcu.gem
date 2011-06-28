@@ -1,6 +1,11 @@
 module Welcu
   class Ticket < Base
-
+    def save
+      return false if id
+      result = @client.post 'tickets', :ticket => self
+      merge! results
+      true
+    end
   end
 
   module API

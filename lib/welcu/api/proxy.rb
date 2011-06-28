@@ -11,6 +11,7 @@ module Welcu
           target.send(name, *args, &block)
         end
 
+        # Handy wrapper to add a reference to the client on every proxyed object
         def with_client
           object = yield
 
