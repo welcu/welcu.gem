@@ -5,6 +5,22 @@ module Welcu
       self.attributes = @client.post 'tickets', :ticket => attributes
       true
     end
+
+    def id
+      attributes['id']
+    end
+
+    %w{first_name last_name email fields}.each do |attr|
+      class_eval <<-EOM
+        def #{attr}
+          attributes['#{attr}'] rescue nil
+        end
+        
+        def #{attr}=(value)
+          attributes['#{attr}'] = value
+        end
+      EOM
+    end
   end
 
   module API
