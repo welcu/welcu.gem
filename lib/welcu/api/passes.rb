@@ -5,6 +5,14 @@ module Welcu
       self.attributes = @client.post 'passes', :pass => attributes
       true
     end
+
+    def id
+      attributes['id']
+    end
+
+    def name
+      attributes['name']
+    end
   end
 
   module API
