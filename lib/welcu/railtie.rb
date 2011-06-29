@@ -5,7 +5,7 @@ module Welcu
       config_file = Rails.root.join("config", "welcu.yml")
       
       if config_file.file?
-        Welcu.config.merge! YAML.load(config_file)[Rails.env]
+        Welcu.config.merge! YAML.load(ERB.new(config_file).result)[Rails.env]
       end
       
     end
