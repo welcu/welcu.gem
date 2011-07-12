@@ -10,5 +10,6 @@ module Welcu
     include Welcu::API::Contacts
     include Welcu::API::Passes
     include Welcu::API::Tickets
+    include Welcu::API::Feed
   end  
 end
