@@ -1,6 +1,6 @@
 module Welcu
   class FeedItem < Base
-    attributes :kind, :label, :user_id, :email, :key, :fields
+    attributes :kind, :label, :collaborator_id, :email, :key, :fields
 
     def save
       result = @client.post('feed', :item => attributes)
