@@ -1,9 +1,10 @@
 module Welcu
   class FeedItem < Base
-    attributes :kind, :key, :fields, :email, :user_id
+    attributes :kind, :label, :user_id, :email, :key, :fields
 
     def save
-      case @client.post('feed', attributes)['status']
+      result = @client.post('feed', :item => attributes)
+      case result['status']
       when 'OK'
         true
       else
