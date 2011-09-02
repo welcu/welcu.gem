@@ -6,7 +6,7 @@ module Welcu
 
       included do
         # Canvas specific attribute delegation
-        delegate :path, :locale, :event_id, :mode, :collaborator_id, :to => :config
+        delegate :path, :locale, :event_id, :company_id, :mode, :collaborator_id, :to => :config
       end
       
       module ClassMethods
