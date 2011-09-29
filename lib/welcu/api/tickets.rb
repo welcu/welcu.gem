@@ -10,7 +10,7 @@ module Welcu
       attributes['id']
     end
 
-    %w{first_name last_name email fields}.each do |attr|
+    %w{first_name last_name email fields skip_delivery}.each do |attr|
       class_eval <<-EOM
         def #{attr}
           attributes['#{attr}'] rescue nil
