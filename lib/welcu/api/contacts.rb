@@ -1,6 +1,20 @@
 module Welcu
   class Contact < Base
-    attributes :first_name, :last_name, :email
+    attributes :first_name, :last_name, :email, :custom_fields
+    
+    def field(key)
+      return nil unless custom_fields.kind_of?(Array)
+      
+      value = nil
+      custom_fields.each do |f|
+        if f['key'] == key
+          value = f['value']
+          break
+        end
+      end
+      
+      value
+    end
   end
 
   module API
