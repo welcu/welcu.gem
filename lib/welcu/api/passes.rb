@@ -1,18 +1,13 @@
 module Welcu
   class Pass < Base
+    attributes :name, :location, :starts_at, :ends_at
+
     def save
       return false if id
       self.attributes = @client.post 'passes', :pass => attributes
       true
     end
 
-    def id
-      attributes['id']
-    end
-
-    def name
-      attributes['name']
-    end
   end
 
   module API

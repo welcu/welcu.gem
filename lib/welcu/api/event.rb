@@ -1,11 +1,12 @@
 module Welcu
   class Event < Base
-    attributes :name, :created_at, :starts_at, :ends_at, :company
+    attributes :name, :created_at, :company, :timezone, :starts_at, :ends_at
 
     def initialize(*)
       super
       self.company = Welcu::Company.new(company) if company
     end
+
   end
   
   module API
