@@ -1,6 +1,6 @@
 module Welcu
   class Pass < Base
-    attributes :name, :location, :starts_at, :ends_at
+    attributes :name, :location
 
     def save
       return false if id
@@ -8,6 +8,13 @@ module Welcu
       true
     end
 
+    def starts_at
+      Time.parse(attributes[:starts_at]) rescue nil
+    end
+
+    def ends_at
+      Time.parse(attributes[:ends_at]) rescue nil
+    end
   end
 
   module API

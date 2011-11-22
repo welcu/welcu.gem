@@ -1,6 +1,7 @@
 require 'welcu/version'
 
 require 'base64'
+require 'time'
 require 'openssl'
 require 'oauth2'
 require 'hashie'
