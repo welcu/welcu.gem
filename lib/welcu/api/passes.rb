@@ -1,6 +1,6 @@
 module Welcu
   class Pass < Base
-    attributes :name, :location
+    attributes :name, :location, :locale
 
     def save
       return false if id
