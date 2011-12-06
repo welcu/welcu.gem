@@ -1,6 +1,6 @@
 module Welcu
   class Event < Base
-    attributes :name, :created_at, :company, :timezone, :starts_at, :ends_at
+    attributes :name, :created_at, :company, :timezone, :locale, :starts_at, :ends_at
 
     def initialize(*)
       super
