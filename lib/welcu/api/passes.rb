@@ -15,6 +15,12 @@ module Welcu
     def ends_at
       Time.parse(attributes[:ends_at]) rescue nil
     end
+    
+    def use!
+      # attributes[:has_been_used] = true
+      # raise attributes.inspect
+      self.attributes = @client.put "passes/#{id}", pass: { id: id, has_been_used: true }
+    end
   end
 
   module API
