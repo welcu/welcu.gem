@@ -1,16 +1,20 @@
 module Welcu
   class Contact < Base
-    attributes :first_name, :last_name, :email, :custom_fields
-    
+    attributes :first_name, :last_name, :email, :unsubscribed, :custom_fields
+
     def save
       # return false unless id
       self.attributes = @client.put "company/contacts/#{id}", { id: id, contact: attributes }
       true
     end
-    
+
+    def unsubscribed?
+      attributes.unsubscribed
+    end
+
     def field(key)
       return nil unless custom_fields.kind_of?(Array)
-      
+
       value = nil
       custom_fields.each do |f|
         if f['key'] == key
@@ -18,14 +22,14 @@ module Welcu
           break
         end
       end
-      
+
       value
     end
-    
+
     def client=(c)
       @client = c
     end
-    
+
     def client
       @client
     end
